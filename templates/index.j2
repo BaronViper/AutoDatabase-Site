@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paul and Jeremy Autos Database</title>
+</head>
+<body>
+    <header>
+        <h1>Paul and Jeremy Autos Database</h1>
+    </header>
+    <nav>
+        <a href="{{ url_for('root') }}">Cars</a>
+        <a href="{{ url_for('customers') }}">Customers</a>
+        <a href="{{ url_for('employees') }}">Employees</a>
+        <a href="{{ url_for('transactions') }}">Transactions</a>
+        <a href="{{ url_for('transaction_details') }}">Transaction Details</a>
+        <a href="{{ url_for('transaction_types') }}">Transaction Types</a>
+        <a href="{{ url_for('conditions') }}">Car Conditions</a>
+    </nav>
+    
+    
+    <h2>Browse Cars</h2>
+
+    <table border="1" cellpadding="5">
+        <tbody>
+            <tr>
+                <th>Car ID</th>
+                <th>Condition</th>
+                <th>Make</th>
+                <th>Model</th>
+                <th>Model Year</th>
+                <th>Date Acquired</th>
+                <th>In Lot</th>
+                <th>Rented Out</th>
+                <th>Color</th>
+                <th>Acquired Price</th>
+                <th>Modify</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Like New</td>
+                <td>Toyota</td>
+                <td>Camry</td>
+                <td>2018</td>
+                <td>2020-09-05</td>
+                <td>False</td>
+                <td>False</td>
+                <td>Silver</td>
+                <td>$20,000</td>
+                <td>
+                    <a href="edit_cars.html">Edit</a>
+                    <a href="#" onclick="alert('Delete Data')">Delete</a>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Fair</td>
+                <td>Ford</td>
+                <td>Mustang</td>
+                <td>2020</td>
+                <td>2021-11-10</td>
+                <td>False</td>
+                <td>True</td>
+                <td>Red</td>
+                <td>$35,000</td>
+                <td>
+                    <a href="edit_cars.html">Edit</a>
+                    <a href="#" onclick="alert('Delete Data')">Delete</a>
+                </td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Fair</td>
+                <td>Honda</td>
+                <td>Civic</td>
+                <td>2019</td>
+                <td>2022-03-15</td>
+                <td>False</td>
+                <td>True</td>
+                <td>Black</td>
+                <td>$18,500</td>
+                <td>
+                    <a href="edit_cars.html">Edit</a>
+                    <a href="#" onclick="alert('Delete Data')">Delete</a>
+                </td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Brand New</td>
+                <td>Chevrolet</td>
+                <td>Tahoe</td>
+                <td>2021</td>
+                <td>2023-06-28</td>
+                <td>False</td>
+                <td>False</td>
+                <td>White</td>
+                <td>$45,000</td>
+                <td>
+                    <a href="edit_cars.html">Edit</a>
+                    <a href="#" onclick="alert('Delete Data')">Delete</a>
+                </td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Brand New</td>
+                <td>BMW</td>
+                <td>X5</td>
+                <td>2017</td>
+                <td>2024-01-20</td>
+                <td>False</td>
+                <td>False</td>
+                <td>Blue</td>
+                <td>$30,000</td>
+                <td>
+                    <a href="edit_cars.html">Edit</a>
+                    <a href="#" onclick="alert('Delete Data')">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <a href="create_cars.html">Create Car</a>
+</body>
+</html>

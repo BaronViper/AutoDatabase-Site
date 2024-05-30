@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paul and Jeremy Autos Database</title>
+</head>
+<body>
+    <header>
+        <h1>Paul and Jeremy Autos Database</h1>
+    </header>
+    <nav>
+        <a href="{{ url_for('root') }}">Cars</a>
+        <a href="{{ url_for('customers') }}">Customers</a>
+        <a href="{{ url_for('employees') }}">Employees</a>
+        <a href="{{ url_for('transactions') }}">Transactions</a>
+        <a href="{{ url_for('transaction_details') }}">Transaction Details</a>
+        <a href="{{ url_for('transaction_types') }}">Transaction Types</a>
+        <a href="{{ url_for('conditions') }}">Car Conditions</a>
+    </nav>
+
+    <h2>Create Employee</h2>
+    <form action="/create-employees" method="post">
+        <table>
+            <tbody>
+                <tr>
+                    <th>Name</th>
+                    <th>Email Address</th>
+                    <th>Phone Number</th>
+                </tr>
+                    <td><input type="text" name="name" required></td>
+                    <td><input type="email" name="email" required></td>
+                    <td><input type="number" name="number" required></td>
+                    <td>
+                        <button type="submit">Create</button>
+                        <a href="{{ url_for('employees') }}">Cancel</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paul and Jeremy Autos Database</title>
+</head>
+<body>
+    <header>
+        <h1>Paul and Jeremy Autos Database</h1>
+    </header>
+    <nav>
+        <a href="{{ url_for('root') }}">Cars</a>
+        <a href="{{ url_for('customers') }}">Customers</a>
+        <a href="{{ url_for('employees') }}">Employees</a>
+        <a href="{{ url_for('transactions') }}">Transactions</a>
+        <a href="{{ url_for('transaction_details') }}">Transaction Details</a>
+        <a href="{{ url_for('transaction_types') }}">Transaction Types</a>
+        <a href="{{ url_for('conditions') }}">Car Conditions</a>
+    </nav>
+
+    <h2>Edit Employee</h2>
+    <form action="/edit-employees/{{ employee['employeeID'] }}" method="post">
+        <table>
+            <tbody>
+                <tr>
+                    <th>Employee ID</th>
+                    <th>Employee Name</th>
+                    <th>Email Address</th>
+                    <th>Phone Number</th>
+                </tr>
+                <tr>
+                    <td><input type="number" name="employeeID" value="{{employee['employeeID']}}"></td>
+                    <td><input type="text" name="name" value="{{employee['employeeName']}}" required></td>
+                    <td><input type="email" name="email" value="{{employee['emailAddress']}}" required></td>
+                    <td><input type="number" name="number" value="{{employee['phoneNumber']}}" required></td>
+                    <td>
+                        <button type="submit">Apply Edit</button>
+                        <a href="{{ url_for('employees') }}">Cancel</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+
+</body>
+</html>

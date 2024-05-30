@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paul and Jeremy Autos Database</title>
+</head>
+<body>
+    <header>
+        <h1>Paul and Jeremy Autos Database</h1>
+    </header>
+    <nav>
+        <a href="{{ url_for('root') }}">Cars</a>
+        <a href="{{ url_for('customers') }}">Customers</a>
+        <a href="{{ url_for('employees') }}">Employees</a>
+        <a href="{{ url_for('transactions') }}">Transactions</a>
+        <a href="{{ url_for('transaction_details') }}">Transaction Details</a>
+        <a href="{{ url_for('transaction_types') }}">Transaction Types</a>
+        <a href="{{ url_for('conditions') }}">Car Conditions</a>
+    </nav>
+    
+    <h2>Browse Employees</h2>
+    <table border="1" cellspacing="5">
+        <tbody>
+            <tr>
+                <th>Employee ID</th>
+                <th>Name</th>
+                <th>Email Address</th>
+                <th>Phone Number</th>
+                <th>Modify</th>
+            </tr>
+            {% for employee in data %}
+                <tr>
+                    <td>{{ employee['employeeID'] }}</td>
+                    <td>{{ employee['employeeName'] }}</td>
+                    <td>{{ employee['emailAddress'] }}</td>
+                    <td>{{ employee['phoneNumber'] }}</td>
+                    <td>
+                        <a href="{{ url_for('edit_employee', employeeID = employee['employeeID']) }}">Edit</a>
+                        <a href="{{ url_for('delete_employees', employeeID = employee['employeeID'])}}">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ url_for('create_employees') }}">Create Employee</a>
+</body>
+</html>

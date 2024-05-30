@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paul and Jeremy Autos Database</title>
+</head>
+<body>
+    <header>
+        <h1>Paul and Jeremy Autos Database</h1>
+    </header>
+    <nav>
+        <a href="{{ url_for('root') }}">Cars</a>
+        <a href="{{ url_for('customers') }}">Customers</a>
+        <a href="{{ url_for('employees') }}">Employees</a>
+        <a href="{{ url_for('transactions') }}">Transactions</a>
+        <a href="{{ url_for('transaction_details') }}">Transaction Details</a>
+        <a href="{{ url_for('transaction_types') }}">Transaction Types</a>
+        <a href="{{ url_for('conditions') }}">Car Conditions</a>
+    </nav>
+
+    <h2>Edit Transaction Details</h2>
+    <form action="/edit-transaction-details/{{ transaction_detail['transactionDetailsID'] }}" method="post">
+        <table>
+            <tbody>
+                <tr>
+                    <th>Transaction Details ID</th>
+                    <th>Transaction ID</th>
+                    <th>Car</th>
+                    <th>Transaction Type</th>
+                    <th>Unit Price</th>
+                </tr>
+                <tr>
+                    <td><input type="text" name="transactionDetailsID" value="{{transaction_detail['transactionDetailsID']}}"></td>
+                    <td>
+                        <select name="transactions" id="">
+                            <option value="1" {% if transaction_detail['transactionID'] == 1 %}selected{% endif %}>Transaction 1</option>
+                            <option value="2" {% if transaction_detail['transactionID'] == 2 %}selected{% endif %}>Transaction 2</option>
+                            <option value="3" {% if transaction_detail['transactionID'] == 3 %}selected{% endif %}>Transaction 3</option>
+                            <option value="4" {% if transaction_detail['transactionID'] == 4 %}selected{% endif %}>Transaction 4</option>
+                            <option value="5" {% if transaction_detail['transactionID'] == 5 %}selected{% endif %}>Transaction 5</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="cars" id="">
+                            <option value="1" {% if transaction_detail['carID'] == 1 %}selected{% endif %}>Toyota Camry - ID: 1</option>
+                            <option value="2" {% if transaction_detail['carID'] == 2 %}selected{% endif %}>Ford Mustang - ID: 2</option>
+                            <option value="3" {% if transaction_detail['carID'] == 3 %}selected{% endif %}>Honda Civic - ID: 3</option>
+                            <option value="4" {% if transaction_detail['carID'] == 4 %}selected{% endif %}>Chevrolet Tahoe - ID: 4</option>
+                            <option value="5" {% if transaction_detail['carID'] == 5 %}selected{% endif %}>BMW X5 - ID: 5</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="type" id="">
+                            <option value="1" {% if transaction_detail['transactionTypeID'] == 1 %}selected{% endif %}>Sale</option>
+                            <option value="2" {% if transaction_detail['transactionTypeID'] == 2 %}selected{% endif %}>Lease</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input name="cost" type="text" value="{{ transaction_detail['unitPrice'] }}"></td>
+                    <td>
+                        <button type="submit">Apply Edit</button>
+                        <a href="{{ url_for('transaction_details') }}">Cancel</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+
+</body>
+</html>
