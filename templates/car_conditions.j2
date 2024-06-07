@@ -27,41 +27,19 @@
                 <th>Description</th>
                 <th>Modify</th>
             </tr>
-            <tr>
-                <td>1</td>
-                <td>Well-Used</td>
-                <td>
-                    <a href="edit_car_condition.html">Edit</a>
-                    <a href="car_conditions.html" onclick="alert('Delete Data')">Delete</a>
-                </td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Fair</td>
-                <td>
-                    <a href="edit_car_condition.html">Edit</a>
-                    <a href="car_conditions.html" onclick="alert('Delete Data')">Delete</a>
-                </td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Like New</td>
-                <td>
-                    <a href="edit_car_condition.html">Edit</a>
-                    <a href="car_conditions.html" onclick="alert('Delete Data')">Delete</a>
-                </td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>Brand New</td>
-                <td>
-                    <a href="edit_car_condition.html">Edit</a>
-                    <a href="car_conditions.html" onclick="alert('Delete Data')">Delete</a>
-                </td>
-            </tr>
+            {% for condition in data %}
+                <tr>
+                    <td>{{ condition['conditionID'] }}</td>
+                    <td>{{ condition['description'] }}</td>
+                    <td>
+                        <a href="{{ url_for('edit_condition', conditionID=condition['conditionID']) }}">Edit</a>
+                        <a href="{{ url_for('delete_condition', conditionID=condition['conditionID']) }}">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
         </tbody>
     </table>
 
-    <a href="create_car_condition.html">Create Car Condition</a>
+    <a href="{{ url_for('create_condition') }}">Create Car Condition</a>
 </body>
 </html>

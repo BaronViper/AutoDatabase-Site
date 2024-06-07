@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paul and Jeremy Autos Database</title>
+</head>
+<body>
+    <header>
+        <h1>Paul and Jeremy Autos Database</h1>
+    </header>
+    <nav>
+        <a href="{{ url_for('root') }}">Cars</a>
+        <a href="{{ url_for('customers') }}">Customers</a>
+        <a href="{{ url_for('employees') }}">Employees</a>
+        <a href="{{ url_for('transactions') }}">Transactions</a>
+        <a href="{{ url_for('transaction_details') }}">Transaction Details</a>
+        <a href="{{ url_for('transaction_types') }}">Transaction Types</a>
+        <a href="{{ url_for('conditions') }}">Car Conditions</a>
+    </nav>
+
+   <h2>Edit Car</h2>
+    <form action="/edit-cars/{{ car['carID'] }}" method="post">
+        <input type="hidden" name="carID" value="{{ car['carID'] }}">
+        <table>
+            <tbody>
+                <tr>
+                    <th>Condition</th>
+                    <th>Make</th>
+                    <th>Model</th>
+                    <th>Model Year</th>
+                    <th>Date Acquired</th>
+                    <th>In Lot</th>
+                    <th>Rented Out</th>
+                    <th>Color</th>
+                    <th>Acquired Price</th>
+                </tr>
+                <tr>
+                    <td>
+                        <select name="condition" id="">
+                            {% for condition in conditions %}
+                                <option value="{{ condition['conditionID'] }}" {% if condition['conditionID'] == car['conditionID'] %}selected{% endif %}>
+                                    {{ condition['description'] }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                    <td><input type="text" name="make" value="{{ car['make'] }}" required></td>
+                    <td><input type="text" name="model" value="{{ car['model'] }}" required></td>
+                    <td><input type="number" name="modelYear" value="{{ car['modelYear'] }}" required></td>
+                    <td><input type="date" name="dateAcquired" value="{{ car['dateAcquired'] }}" required></td>
+                    <td><input type="checkbox" name="inLot" value="true" {% if car['inLot'] %}checked{% endif %}></td>
+                    <td><input type="checkbox" name="rentedOut" value="true" {% if car['rentedOut'] %}checked{% endif %}></td>
+                    <td><input type="text" name="color" value="{{ car['color'] }}" required></td>
+                    <td><input type="number" name="acquiredPrice" value="{{ car['acquiredPrice'] }}" required></td>
+                    <td>
+                        <button type="submit">Apply Edit</button>
+                        <a href="{{ url_for('root') }}">Cancel</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+
+
+</body>
+</html>

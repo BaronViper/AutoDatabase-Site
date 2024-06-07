@@ -37,89 +37,27 @@
                 <th>Acquired Price</th>
                 <th>Modify</th>
             </tr>
-            <tr>
-                <td>1</td>
-                <td>Like New</td>
-                <td>Toyota</td>
-                <td>Camry</td>
-                <td>2018</td>
-                <td>2020-09-05</td>
-                <td>False</td>
-                <td>False</td>
-                <td>Silver</td>
-                <td>$20,000</td>
-                <td>
-                    <a href="edit_cars.html">Edit</a>
-                    <a href="#" onclick="alert('Delete Data')">Delete</a>
-                </td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Fair</td>
-                <td>Ford</td>
-                <td>Mustang</td>
-                <td>2020</td>
-                <td>2021-11-10</td>
-                <td>False</td>
-                <td>True</td>
-                <td>Red</td>
-                <td>$35,000</td>
-                <td>
-                    <a href="edit_cars.html">Edit</a>
-                    <a href="#" onclick="alert('Delete Data')">Delete</a>
-                </td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Fair</td>
-                <td>Honda</td>
-                <td>Civic</td>
-                <td>2019</td>
-                <td>2022-03-15</td>
-                <td>False</td>
-                <td>True</td>
-                <td>Black</td>
-                <td>$18,500</td>
-                <td>
-                    <a href="edit_cars.html">Edit</a>
-                    <a href="#" onclick="alert('Delete Data')">Delete</a>
-                </td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>Brand New</td>
-                <td>Chevrolet</td>
-                <td>Tahoe</td>
-                <td>2021</td>
-                <td>2023-06-28</td>
-                <td>False</td>
-                <td>False</td>
-                <td>White</td>
-                <td>$45,000</td>
-                <td>
-                    <a href="edit_cars.html">Edit</a>
-                    <a href="#" onclick="alert('Delete Data')">Delete</a>
-                </td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>Brand New</td>
-                <td>BMW</td>
-                <td>X5</td>
-                <td>2017</td>
-                <td>2024-01-20</td>
-                <td>False</td>
-                <td>False</td>
-                <td>Blue</td>
-                <td>$30,000</td>
-                <td>
-                    <a href="edit_cars.html">Edit</a>
-                    <a href="#" onclick="alert('Delete Data')">Delete</a>
-                </td>
-            </tr>
+            {% for car in data %}
+                <tr>
+                    <td>{{ car['carID'] }}</td>
+                    <td>{{ conditions[car['conditionID'] - 1]['description'] }}</td>
+                    <td>{{ car['make'] }}</td>
+                    <td>{{ car['model' ]}}</td>
+                    <td>{{ car['modelYear'] }}</td>
+                    <td>{{ car['dateAcquired'] }}</td>
+                    <td>{{ car['inLot'] }}</td>
+                    <td>{{ car['rentedOut'] }}</td>
+                    <td>{{ car['color'] }}</td>
+                    <td>${{ car['acquiredPrice'] }}</td>
+                    <td>
+                        <a href="{{ url_for('edit_car', carID = car['carID']) }}">Edit</a>
+                        <a href="{{ url_for('delete_cars', carID = car['carID'])}}">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
         </tbody>
     </table>
     
-    <a href="create_cars.html">Create Car</a>
+    <a href="{{ url_for('create_cars') }}">Create Car</a>
 </body>
 </html>

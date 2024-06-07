@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paul and Jeremy Autos Database</title>
+</head>
+<body>
+    <header>
+        <h1>Paul and Jeremy Autos Database</h1>
+    </header>
+    <nav>
+        <a href="{{ url_for('root') }}">Cars</a>
+        <a href="{{ url_for('customers') }}">Customers</a>
+        <a href="{{ url_for('employees') }}">Employees</a>
+        <a href="{{ url_for('transactions') }}">Transactions</a>
+        <a href="{{ url_for('transaction_details') }}">Transaction Details</a>
+        <a href="{{ url_for('transaction_types') }}">Transaction Types</a>
+        <a href="{{ url_for('conditions') }}">Car Conditions</a>
+    </nav>
+
+
+    <h2>Edit Transaction Types</h2>
+    <form action="/edit-transaction-types"
+    <table>
+        <tbody>
+            <tr>
+                <th>Transaction Types ID</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td><input type="number" name="transactionTypeID></td>
+                <td><input type="text"></td>
+                <td>
+                    <a href="transaction_types.html" onclick="alert('Edit Data')">Apply</a>
+                    <a href="transaction_types.html" onclick="alert('Cancel Edit')">Cancel</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>

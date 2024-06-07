@@ -32,20 +32,16 @@
                 <tr>
                     <td>
                         <select name="transactions" id="">
-                            <option value="1">Transaction 1</option>
-                            <option value="2">Transaction 2</option>
-                            <option value="3">Transaction 3</option>
-                            <option value="4">Transaction 4</option>
-                            <option value="5">Transaction 5</option>
+                            {% for transac in transactions %}
+                                <option value={{ transac['transactionID'] }}>Transaction {{ transac['transactionID'] }}</option>
+                            {% endfor %}
                         </select>
                     </td>
                     <td>
                         <select name="cars" id="">
-                            <option value="1">Toyota Camry - ID: 1</option>
-                            <option value="2">Ford Mustang - ID: 2</option>
-                            <option value="3">Honda Civic - ID: 3</option>
-                            <option value="4">Chevrolet Tahoe - ID: 4</option>
-                            <option value="5">BMW X5 - ID: 5</option>
+                            {% for car in cars %}
+                                <option value={{ car['carID'] }}>{{ car['make'] }} {{ car['model'] }} - ID: {{ car['carID'] }}</option>
+                            {% endfor %}
                         </select>
                     </td>
                     <td>
@@ -57,7 +53,7 @@
                     <td><input type="text" name="cost"></td>
                     <td>
                         <button type="submit">Create</button>
-                        <a href="{{ url_for('transaction_details') }}">Cancel</a>
+                        <a href="{{ url_for('/') }}">Cancel</a>
                     </td>
                 </tr>
             </tbody>
