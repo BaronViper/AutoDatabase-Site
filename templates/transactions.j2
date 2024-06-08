@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paul and Jeremy Autos Database</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
     <header>
@@ -19,59 +20,63 @@
         <a href="{{ url_for('transaction_types') }}">Transaction Types</a>
         <a href="{{ url_for('conditions') }}">Car Conditions</a>
     </nav>
+    <hr class="rounded">
     
     <h2>Browse Transactions</h2>
-    <table border="1" cellspacing="5">
-        <tbody>
-            <tr>
-                <th>Transaction ID</th>
-                <th>Customer</th>
-                <th>Employee</th>
-                <th>Transaction Amount</th>
-                <th>Transaction Date</th>
-                <th>Actions</th>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>Moe Toe</td>
-                <td>Lak Tuay</td>
-                <td>$3,000</td>
-                <td>2024-4-18</td>
-                <td>
-                    <a href="details_1.html">Details</a>
-                    <a href="edit_transactions.html">Edit</a>
-                    <a href="transactions.html" onclick="alert('Delete Data and Associated Details')">Delete</a>
-                </td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Moe Toe</td>
-                <td>Juda Ouk</td>
-                <td>$2,748</td>
-                <td>2024-4-21</td>
-                <td>
-                    <a onclick="alert('Show transactionDetail objects associated with this transaction object')">Details</a>
-                    <a href="edit_transactions.html">Edit</a>
-                    <a href="transactions.html" onclick="alert('Delete Data and Associated Details')">Delete</a>
-                </td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Joe Swit</td>
-                <td>Rasho Loe</td>
-                <td>$937,202</td>
-                <td>2024-5-1</td>
-                <td>
-                    <a onclick="alert('Show transactionDetail objects associated with this transaction object')">Details</a>
-                    <a href="edit_transactions.html">Edit</a>
-                    <a href="transactions.html" onclick="alert('Delete Data and Associated Details')">Delete</a>
-                </td>
-            </tr>
-        </tbody>
+    <div class="table">
+        <table>
+            <tbody>
+                <tr>
+                    <th>Transaction ID</th>
+                    <th>Customer</th>
+                    <th>Employee</th>
+                    <th>Transaction Amount</th>
+                    <th>Transaction Date</th>
+                    <th>Actions</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Moe Toe</td>
+                    <td>Lak Tuay</td>
+                    <td>$3,000</td>
+                    <td>2024-4-18</td>
+                    <td>
+                        <a href="details_1.html">Details</a>
+                        <a href="edit_transactions.html">Edit</a>
+                        <a href="transactions.html" onclick="alert('Delete Data and Associated Details')">Delete</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Moe Toe</td>
+                    <td>Juda Ouk</td>
+                    <td>$2,748</td>
+                    <td>2024-4-21</td>
+                    <td>
+                        <a onclick="alert('Show transactionDetail objects associated with this transaction object')">Details</a>
+                        <a href="edit_transactions.html">Edit</a>
+                        <a href="transactions.html" onclick="alert('Delete Data and Associated Details')">Delete</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Joe Swit</td>
+                    <td>Rasho Loe</td>
+                    <td>$937,202</td>
+                    <td>2024-5-1</td>
+                    <td>
+                        <a onclick="alert('Show transactionDetail objects associated with this transaction object')">Details</a>
+                        <a href="edit_transactions.html">Edit</a>
+                        <a href="transactions.html" onclick="alert('Delete Data and Associated Details')">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
 
-    </table>
+        </table>
+    </div>
 
-    <a href="create_transaction.html">Create Transaction</a>
+    <button class="create_button" onclick="window.location.href='create_transactions.html'">Create Transaction</button>
+
     
 </body>
 </html>

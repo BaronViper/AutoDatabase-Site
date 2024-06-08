@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paul and Jeremy Autos Database</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
     <header>
@@ -18,9 +19,11 @@
         <a href="{{ url_for('transaction_types') }}">Transaction Types</a>
         <a href="{{ url_for('conditions') }}">Car Conditions</a>
     </nav>
+    <hr class="rounded">
 
     <h2>Create Customer</h2>
     <form action="/create-customers" method="post">
+    <div class="table">
         <table>
             <tbody>
                 <tr>
@@ -48,6 +51,7 @@
                 </tr>
             </tbody>
         </table>
+    </div>
     </form>
 
 

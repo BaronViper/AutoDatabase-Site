@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paul and Jeremy Autos Database</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
     <header>
@@ -18,33 +19,37 @@
         <a href="{{ url_for('transaction_types') }}">Transaction Types</a>
         <a href="{{ url_for('conditions') }}">Car Conditions</a>
     </nav>
+    <hr class="rounded">
     
     <h2>Browse All Transaction Details</h2>
-    <table border="1" cellspacing="5">
-        <tbody>
-            <tr>
-                <th>Transaction Details ID</th>
-                <th>Transaction ID</th>
-                <th>Car ID</th>
-                <th>Transaction Type</th>
-                <th>Unit Price</th>
-            </tr>
-            {% for detail in data %}
-            <tr>
-                <td>{{ detail['transactionDetailsID'] }}</td>
-                <td>{{ detail['transactionID'] }}</td>
-                <td>{{ detail['carID'] }}</td>
-                <td>{{ types[detail['transactionTypeID']] }}</td>
-                <td>${{ detail['unitPrice'] }}</td>
-                <td>
-                    <a href="{{ url_for('edit_details', transactionDetailsID = detail['transactionDetailsID']) }}">Edit</a>
-                    <a href="{{ url_for('delete_details', transactionDetailsID = detail['transactionDetailsID'])}}">Delete</a>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <div class="table">
+        <table>
+            <tbody>
+                <tr>
+                    <th>Transaction Details ID</th>
+                    <th>Transaction ID</th>
+                    <th>Car ID</th>
+                    <th>Transaction Type</th>
+                    <th>Unit Price</th>
+                </tr>
+                {% for detail in data %}
+                <tr>
+                    <td>{{ detail['transactionDetailsID'] }}</td>
+                    <td>{{ detail['transactionID'] }}</td>
+                    <td>{{ detail['carID'] }}</td>
+                    <td>{{ types[detail['transactionTypeID']] }}</td>
+                    <td>${{ detail['unitPrice'] }}</td>
+                    <td>
+                        <a href="{{ url_for('edit_details', transactionDetailsID = detail['transactionDetailsID']) }}">Edit</a>
+                        <a href="{{ url_for('delete_details', transactionDetailsID = detail['transactionDetailsID'])}}">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 
-    <a href="{{ url_for('create_details') }}">Create Transaction Details</a>
+    <button class="create_button" onclick="window.location.href='{{ url_for('create_details') }}'">Create Transaction Details</button>
+
 </body>
 </html>

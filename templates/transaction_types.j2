@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paul and Jeremy Autos Database</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
     <header>
@@ -18,28 +19,32 @@
         <a href="{{ url_for('transaction_types') }}">Transaction Types</a>
         <a href="{{ url_for('conditions') }}">Car Conditions</a>
     </nav>
-    
-    <h2>Browse Transaction Types</h2>
-    <table border="1" cellspacing="5">
-        <tbody>
-            <tr>
-                <th>Transaction Type ID</th>
-                <th>Description</th>
-                <th>Modify</th>
-            </tr>
-            {% for type in data %}
-            <tr>
-                <td> {{ type['transactionTypeID'] }}</td>
-                <td> {{ type['description'] }}</td>
-                <td>
-                    <a href="{{ url_for('edit_type', transactionTypeID= type['transactionTypeID']) }}">Edit</a>
-                    <a href="{{ url_for('delete_type', transactionTypeID= type['transactionTypeID']) }}">Delete</a>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <hr class="rounded">
 
-    <a href="{{ url_for('create_types') }}">Create Transaction Types</a>
+    <h2>Browse Transaction Types</h2>
+    <div class="table">
+        <table>
+            <tbody>
+                <tr>
+                    <th>Transaction Type ID</th>
+                    <th>Description</th>
+                    <th>Modify</th>
+                </tr>
+                {% for type in data %}
+                <tr>
+                    <td> {{ type['transactionTypeID'] }}</td>
+                    <td> {{ type['description'] }}</td>
+                    <td>
+                        <a href="{{ url_for('edit_type', transactionTypeID= type['transactionTypeID']) }}">Edit</a>
+                        <a href="{{ url_for('delete_type', transactionTypeID= type['transactionTypeID']) }}">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <button class="create_button" onclick="window.location.href='{{ url_for('create_types') }}'">Create Types</button>
+
 </body>
 </html>

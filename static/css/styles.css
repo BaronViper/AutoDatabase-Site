@@ -1,0 +1,76 @@
+body {
+    text-align: center;
+    background-color: blanchedalmond;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    color: white;
+    background-color: #8B4513;
+    margin: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+nav a {
+    margin-left: 10px;
+    margin-left: 10px;
+}
+
+.table {
+    margin: 0 auto;
+    width: fit-content;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #D2B48C; /* Brown background color */
+    color: #FFFFFF; /* Text color */
+}
+
+table th,
+table td {
+    padding: 10px;
+    border: 1px solid #FFFFFF; /* White border */
+}
+
+table th {
+    background-color: #8B4513; /* Dark brown header background */
+    font-weight: bold;
+}
+
+table tr:nth-child(even) {
+    background-color: #A0522D; /* Light brown alternating row background */
+}
+
+table tr:hover {
+    background-color: #CD853F; /* Hover color */
+}
+
+tr td a {
+    color: white;
+}
+
+.create_button {
+    margin-top: 20px;
+    font-size: 20px;
+    background-color: #8B4513;
+    color: white;
+}
+
+hr.rounded {
+    border-top: 8px solid #8B4513;
+    border-radius: 5px;
+    width: 90%;
+}

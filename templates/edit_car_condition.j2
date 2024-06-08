@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paul and Jeremy Autos Database</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
     <header>
@@ -18,26 +19,29 @@
         <a href="{{ url_for('transaction_types') }}">Transaction Types</a>
         <a href="{{ url_for('conditions') }}">Car Conditions</a>
     </nav>
+    <hr class="rounded">
 
     
     <h2>Edit Car Condition</h2>
     <form action="/edit-conditions/ {{ condition['conditionID'] }}" method="post">
-    <table>
-        <tbody>
-            <tr>
-                <th>Car Condition ID</th>
-                <th>Description</th>
-            </tr>
-            <tr>
-                <td><input type="number" name="conditionID" value="{{condition['conditionID']}}"></td>
-                <td><input type="text" name="description" value="{{condition['conditionDescription']}} required"></td>
-                <td>
-                    <button type="submit">">Apply</button>
-                    <a href="{{ url_for('conditions') }}">Cancel</a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="table">
+        <table>
+            <tbody>
+                <tr>
+                    <th>Car Condition ID</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td><input type="number" name="conditionID" value="{{condition['conditionID']}}"></td>
+                    <td><input type="text" name="description" value="{{condition['conditionDescription']}} required"></td>
+                    <td>
+                        <button type="submit">">Apply</button>
+                        <a href="{{ url_for('conditions') }}">Cancel</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
     </form>
 
 </body>

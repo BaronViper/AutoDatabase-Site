@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paul and Jeremy Autos Database</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
     <header>
@@ -18,28 +19,31 @@
         <a href="{{ url_for('transaction_types') }}">Transaction Types</a>
         <a href="{{ url_for('conditions') }}">Car Conditions</a>
     </nav>
+    <hr class="rounded">
     
     <h2>Browse Car Conditions</h2>
-    <table border="1" cellspacing="5">
-        <tbody>
-            <tr>
-                <th>Car Condition ID</th>
-                <th>Description</th>
-                <th>Modify</th>
-            </tr>
-            {% for condition in data %}
+    <div class="table">
+        <table>
+            <tbody>
                 <tr>
-                    <td>{{ condition['conditionID'] }}</td>
-                    <td>{{ condition['description'] }}</td>
-                    <td>
-                        <a href="{{ url_for('edit_condition', conditionID=condition['conditionID']) }}">Edit</a>
-                        <a href="{{ url_for('delete_condition', conditionID=condition['conditionID']) }}">Delete</a>
-                    </td>
+                    <th>Car Condition ID</th>
+                    <th>Description</th>
+                    <th>Modify</th>
                 </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+                {% for condition in data %}
+                    <tr>
+                        <td>{{ condition['conditionID'] }}</td>
+                        <td>{{ condition['description'] }}</td>
+                        <td>
+                            <a href="{{ url_for('edit_condition', conditionID=condition['conditionID']) }}">Edit</a>
+                            <a href="{{ url_for('delete_condition', conditionID=condition['conditionID']) }}">Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 
-    <a href="{{ url_for('create_condition') }}">Create Car Condition</a>
+    <button class="create_button" onclick="window.location.href='{{ url_for('create_condition') }}'">Create Car Condition</button>
 </body>
 </html>
